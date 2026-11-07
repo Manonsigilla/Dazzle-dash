@@ -1,0 +1,531 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap');
+
+:root {
+  --marine: #0b2a3a;
+  --marine-clair: #123a4b;
+  --teal: #1f7a8c;
+  --menthe: #3fbf8f;
+  --coral: #f26b4e;
+  --safran: #f2b134;
+  --prune: #6b4e71;
+  --brume: #edf3f2;
+  --papier: #ffffff;
+  --encre: #0b2a3a;
+  --ardoise: #5c6f73;
+  --bordure: #dce8e5;
+  --grille: #e3ecea;
+  --ombre: 0 16px 40px rgba(11, 42, 58, 0.08);
+  --rayon: 18px;
+  --police-titre: "Newsreader", "Spectral", Georgia, serif;
+  --police-texte: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --police-mono: "IBM Plex Mono", Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 4%, rgba(242, 177, 52, 0.10), transparent 30%),
+    radial-gradient(circle at 92% 12%, rgba(31, 122, 140, 0.10), transparent 28%),
+    var(--brume);
+  color: var(--encre);
+  font-family: var(--police-texte);
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--safran);
+  color: var(--marine);
+}
+
+:focus-visible {
+  outline: 3px solid var(--safran);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Barre de navigation
+   -------------------------------------------------------------------------- */
+.navbar-dazzle {
+  background: var(--marine) !important;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  box-shadow: 0 8px 28px rgba(11, 42, 58, 0.22);
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--coral), var(--safran) 35%, var(--menthe) 68%, var(--teal)) 1;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+.marque-dazzle {
+  color: #fff7ec !important;
+  font-family: var(--police-titre);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.navbar-dazzle .nav-link {
+  color: #c9d8d5 !important;
+  font-family: var(--police-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem !important;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar-dazzle .nav-link.active,
+.navbar-dazzle .nav-link:hover {
+  color: var(--safran) !important;
+  border-bottom-color: var(--coral);
+}
+
+/* --------------------------------------------------------------------------
+   Structure
+   -------------------------------------------------------------------------- */
+.app-contenu {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.entete-page {
+  position: relative;
+  overflow: hidden;
+  padding: 2.4rem 2.6rem 2.8rem;
+  border-radius: 24px;
+  margin-bottom: 1.8rem;
+  color: #fff7ec;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(242, 177, 52, 0.22), transparent 36%),
+    radial-gradient(circle at 12% 82%, rgba(63, 191, 143, 0.18), transparent 34%),
+    linear-gradient(135deg, var(--marine) 0%, #123a4b 62%, #174250 100%);
+  box-shadow: 0 24px 60px rgba(11, 42, 58, 0.22);
+}
+
+.entete-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 52px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 52px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.entete-page::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--coral), var(--safran) 35%, var(--menthe) 68%, var(--teal));
+}
+
+.entete-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.entete-page .surtitre {
+  color: var(--safran);
+}
+
+.entete-page .titre-page {
+  color: #fff7ec;
+  font-size: clamp(2.4rem, 4.2vw, 4.2rem);
+  line-height: 0.98;
+  max-width: 980px;
+}
+
+.entete-page .texte-intro {
+  color: #c9d8d5;
+  max-width: 850px;
+  font-size: 1.06rem;
+}
+
+.surtitre {
+  color: var(--coral);
+  font-family: var(--police-mono);
+  font-size: 0.70rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.55rem;
+}
+
+.titre-page {
+  color: var(--marine);
+  font-family: var(--police-titre);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.texte-intro {
+  color: var(--ardoise);
+  max-width: 900px;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   KPI
+   -------------------------------------------------------------------------- */
+.carte-kpi {
+  position: relative;
+  overflow: hidden;
+  background: var(--papier);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 1.15rem 1.2rem 1.05rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carte-kpi::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--coral), var(--safran), var(--menthe), var(--teal));
+}
+
+.carte-kpi:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 50px rgba(11, 42, 58, 0.13);
+}
+
+.kpi-valeur {
+  color: var(--marine);
+  font-family: var(--police-titre);
+  font-size: 2.15rem;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-libelle {
+  color: var(--ardoise);
+  font-family: var(--police-mono);
+  font-size: 0.70rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-top: 0.55rem;
+}
+
+/* --------------------------------------------------------------------------
+   Cartes et filtres
+   -------------------------------------------------------------------------- */
+.carte-filtre,
+.section-carte {
+  background: var(--papier);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+}
+
+.carte-filtre .card-body {
+  padding: 1.25rem 1.3rem;
+}
+
+.section-carte .card-body {
+  padding: 1.2rem;
+}
+
+.section-carte .card-header {
+  background: transparent;
+  border-bottom: 1px solid var(--bordure);
+  color: var(--marine);
+  font-family: var(--police-texte);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 1rem 1.2rem;
+}
+
+.section-carte .card-header::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--coral), var(--safran));
+  margin-right: 0.55rem;
+  vertical-align: 1px;
+}
+
+.titre-synthese {
+  color: var(--marine);
+  font-family: var(--police-titre);
+  font-weight: 600;
+}
+
+.texte-secondaire {
+  color: var(--ardoise);
+}
+
+.texte-mini {
+  color: var(--ardoise);
+  font-size: 0.76rem;
+}
+
+/* --------------------------------------------------------------------------
+   Formulaires
+   -------------------------------------------------------------------------- */
+.form-label {
+  color: var(--ardoise);
+  font-family: var(--police-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.Select-control {
+  min-height: 40px;
+  border-radius: 10px !important;
+  border-color: var(--bordure) !important;
+  background: #fbfdfc !important;
+  box-shadow: none !important;
+}
+
+.Select-control:hover {
+  border-color: var(--teal) !important;
+}
+
+.Select-menu-outer {
+  border-radius: 12px;
+  border-color: var(--bordure);
+  box-shadow: var(--ombre);
+}
+
+.Select--multi .Select-value {
+  background: #e8f4f1 !important;
+  border-color: #cfe7e1 !important;
+  color: var(--marine) !important;
+  border-radius: 999px !important;
+}
+
+.rc-slider-track {
+  background: var(--teal) !important;
+}
+
+.rc-slider-handle {
+  border-color: var(--teal) !important;
+  background: #ffffff !important;
+}
+
+.rc-slider-dot-active {
+  border-color: var(--teal) !important;
+}
+
+.form-check-input:checked {
+  background-color: var(--teal);
+  border-color: var(--teal);
+}
+
+.switch-dazzle {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.switch-dazzle .form-check-label {
+  color: #3f4f63;
+  font-size: 0.92rem;
+}
+
+.mode-selector .form-check-inline {
+  margin-right: 1.6rem;
+}
+
+.mode-selector .form-check-input:checked {
+  background-color: var(--teal);
+  border-color: var(--teal);
+}
+
+/* --------------------------------------------------------------------------
+   Boutons
+   -------------------------------------------------------------------------- */
+.btn {
+  border-radius: 999px;
+  font-family: var(--police-texte);
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary,
+.bouton-principal {
+  background: var(--marine);
+  border-color: var(--marine);
+  color: #fff7ec;
+}
+
+.btn-primary:hover,
+.bouton-principal:hover {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: var(--safran);
+  border-color: var(--safran);
+  color: var(--marine);
+}
+
+.btn-secondary:hover {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: #ffffff;
+}
+
+.btn-outline-secondary {
+  color: var(--teal);
+  border-color: var(--teal);
+  background: transparent;
+}
+
+.btn-outline-secondary:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Alertes
+   -------------------------------------------------------------------------- */
+.alert {
+  border-radius: 14px;
+  border: 1px solid var(--bordure);
+  font-size: 0.9rem;
+}
+
+.alert-warning {
+  background: #fff6dd;
+  color: #5a4300;
+  border-left: 4px solid var(--safran);
+}
+
+.alert-info {
+  background: #eaf5f2;
+  color: var(--marine);
+  border-left: 4px solid var(--teal);
+}
+
+.alert-secondary {
+  background: #f3f1f5;
+  color: #3e3548;
+  border-left: 4px solid var(--prune);
+}
+
+/* --------------------------------------------------------------------------
+   Graphiques et tableaux
+   -------------------------------------------------------------------------- */
+.graphique-preston {
+  min-height: 420px;
+}
+
+.tableau-preston {
+  width: 100%;
+  min-height: 420px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--bordure);
+}
+
+.ag-theme-alpine {
+  --ag-foreground-color: var(--marine);
+  --ag-background-color: #ffffff;
+  --ag-header-background-color: #edf5f2;
+  --ag-header-foreground-color: var(--marine);
+  --ag-odd-row-background-color: #fafdfc;
+  --ag-border-color: var(--bordure);
+  --ag-row-hover-color: #fcefe9;
+  --ag-selected-row-background-color: #fbe3d9;
+  --ag-font-family: var(--police-texte);
+  --ag-font-size: 13px;
+}
+
+.ag-theme-alpine .ag-header-cell-label {
+  font-family: var(--police-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ag-theme-alpine .ag-cell {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   Pied de page
+   -------------------------------------------------------------------------- */
+.pied-page {
+  border-top: 1px solid var(--bordure);
+  padding: 1.6rem 1rem;
+  text-align: center;
+}
+
+.texte-pied {
+  color: var(--ardoise);
+  font-family: var(--police-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive et accessibilité
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .navbar-dazzle .nav-link {
+    font-size: 0.62rem;
+    padding: 0.4rem 0.5rem !important;
+  }
+
+  .entete-page {
+    padding: 1.8rem 1.5rem 2.1rem;
+  }
+
+  .entete-page .titre-page {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-contenu {
+    padding: 1.25rem 0.9rem 2rem;
+  }
+
+  .kpi-valeur {
+    font-size: 1.65rem;
+  }
+
+  .entete-page {
+    border-radius: 18px;
+  }
+
+  .titre-page {
+    font-size: 1.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .carte-kpi {
+    transition: none;
+  }
+}
